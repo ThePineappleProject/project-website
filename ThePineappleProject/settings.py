@@ -75,9 +75,6 @@ AWS_ACCESS_KEY_ID = "AKIAJ2TFJF2EQCPHRFSA"
 AWS_SECRET_ACCESS_KEY = "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"
 AWS_STORAGE_BUCKET_NAME = "pineappleproject"
 
-#from boto.s3 import CallingFormat
-#AWS_CALLING_FORMAT = CallingFormat.SUBDOMAIN
-
 # Additional locations of static files
 STATICFILES_DIRS = (
     # Put strings here, like "/home/html/static" or "C:/www/django/static".
