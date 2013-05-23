@@ -1,0 +1,16 @@
+body {
+    background: #f2f2f4 url(../img/background.jpg);
+}
+#main-container {
+    background: white;
+    margin-top: 40px;
+    -webkit-box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.3), 0px 0px;
+    box-shadow: 0px 0px 40px hsla(0, 0%, 0%, 0.30), 0px 0px;
+}
+
+.social-icon {
+    height: 2em;
+}
+.social-links {
+    padding-right: 5px;
+}

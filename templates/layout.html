@@ -1,0 +1,45 @@
+{% load bootstrap_toolkit %}
+{% load staticfiles %}
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="shortcut icon" href="{% static "img/favicon.png" %}" />
+        <title>{% block title %}{% endblock %} - The Pineapple Project</title>
+        {% bootstrap_stylesheet_tag %}
+        {% bootstrap_stylesheet_tag "responsive" %}
+        <link rel="stylesheet" href="{% static "css/style.css" %}"/>
+        {% block head %}{% endblock %}
+    </head>
+    <body>
+        <div id="main-container" class="container">
+            <div class="navbar navbar-static-top">
+                <div class="navbar-inner">
+                    <a href="/" class="brand"><img src="{% static "img/slice.png" %}" />The Pineapple Project</a>
+                    <ul class="nav pull-right">
+                        <li><a href="{% url "home" %}">Home</a></li>
+                        <li><a href="{% url "about" %}">About</a></li>
+                        <li><a href="{% url "join" %}">Join Us</a></li>
+                    </ul>
+                </div>
+            </div>
+            {% block content %}{% endblock %}
+            <footer>
+                <div class="row-fluid">
+                    <div class="span3">
+                        &copy; The Pineapple Project {% now "Y"%}
+                    </div>           
+                    <div class="span3 pull-right text-right social-links">
+                        <a href="https://www.facebook.com/ThePineappleProject"><img class="social-icon" src="{% static "img/fc-webicon-facebook.svg" %}"/></a>
+                        <a href="http://www.youtube.com/user/ThePinappleProject"><img class="social-icon" src="{% static "img/fc-webicon-youtube.svg" %}"/></a>
+                        <a href="http://pinterest.com/pinappleproject/"><img class="social-icon" src="{% static "img/fc-webicon-pinterest.svg" %}"/></a>
+                    </div>         
+                </div>
+            </footer>
+        </div>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+        {% bootstrap_javascript_tag %}
+        {% block scripts %}{% endblock %}
+    </body>
+</html>
