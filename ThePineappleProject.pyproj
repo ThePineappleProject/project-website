@@ -66,6 +66,7 @@
     </VirtualEnv>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Procfile" />
     <Content Include="templates\layout.html" />
     <Content Include="web\static\css\style.css" />
     <Content Include="web\static\img\background.jpg" />

@@ -1,5 +1,6 @@
 # Django settings for ThePineappleProject project.
 from unipath import Path
+
 PROJECT_DIR = Path(__file__).ancestor(2)
 
 DEBUG = True
@@ -67,11 +68,15 @@ STATIC_ROOT = PROJECT_DIR.child("static")
 # Example: "http://media.lawrence.com/static/"
 STATIC_URL = '/static/'
 
-#use Azure blob storage for static files
-DEFAULT_FILE_STORAGE = 'storages.backends.azure_storage.AzureStorage'
-AZURE_ACCOUNT_NAME = "pineapple"
-AZURE_ACCOUNT_KEY = "brv/PZAXvk4a6QEVdlJwNFurGkDHTJXmrvZeGr53v0KrGSh5TUHmVTQ695ldmMPAahzYNzpalh5Pb8P3SDmgBQ=="
-AZURE_CONTAINER = "static"
+#use S3 blob storage for static files
+STATICFILES_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
+AWS_ACCESS_KEY_ID = "AKIAJ2TFJF2EQCPHRFSA"
+AWS_SECRET_ACCESS_KEY = "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"
+AWS_STORAGE_BUCKET_NAME = "pineappleproject"
+
+#from boto.s3 import CallingFormat
+#AWS_CALLING_FORMAT = CallingFormat.SUBDOMAIN
 
 # Additional locations of static files
 STATICFILES_DIRS = (
