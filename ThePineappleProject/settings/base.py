@@ -1,27 +1,23 @@
 # Django settings for ThePineappleProject project.
 from unipath import Path
+import os
+from django.core.exceptions import ImproperlyConfigured
 
-PROJECT_DIR = Path(__file__).ancestor(2)
+def get_env_variable(var_name):
+    """ Get the environment variable or return exception """
+    try:
+        return os.environ[var_name]
+    except KeyError:
+        error_msg = "Set the %s environment variable" % var_name
+        raise ImproperlyConfigured(error_msg)
 
-DEBUG = True
-TEMPLATE_DEBUG = DEBUG
+PROJECT_DIR = Path(__file__).ancestor(3)
 
 ADMINS = (
     # ('Your Name', 'your_email@example.com'),
 )
 
 MANAGERS = ADMINS
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': 'PineappleProject',                      # Or path to database file if using sqlite3.
-        'USER': 'pineappleuser',                      # Not used with sqlite3.
-        'PASSWORD': 'UxjNSgCiprzW4ZdFUvfC',                  # Not used with sqlite3.
-        'HOST': '',                      # Set to empty string for localhost. Not used with sqlite3.
-        'PORT': '',                      # Set to empty string for default. Not used with sqlite3.
-    }
-}
 
 # Local time zone for this installation. Choices can be found here:
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
@@ -68,12 +64,6 @@ STATIC_ROOT = PROJECT_DIR.child("static")
 # Example: "http://media.lawrence.com/static/"
 STATIC_URL = '/static/'
 
-#use S3 blob storage for static files
-STATICFILES_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
-DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
-AWS_ACCESS_KEY_ID = "AKIAJ2TFJF2EQCPHRFSA"
-AWS_SECRET_ACCESS_KEY = "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"
-AWS_STORAGE_BUCKET_NAME = "pineappleproject"
 
 # Additional locations of static files
 STATICFILES_DIRS = (
@@ -91,7 +81,7 @@ STATICFILES_FINDERS = (
 )
 
 # Make this unique, and don't share it with anybody.
-SECRET_KEY = 'n(bd1f1c%e8=_xad02x5qtfn%wgwpi492e$8_erx+d)!tpeoim'
+SECRET_KEY = get_env_variable('DJANGO_SECRET_KEY')
 
 # List of callables that know how to import templates from various sources.
 TEMPLATE_LOADERS = (
@@ -164,3 +154,6 @@ LOGGING = {
         },
     }
 }
+# Hosts/domain names that are valid for this site; required if DEBUG is False
+# See https://docs.djangoproject.com/en/1.5/ref/settings/#allowed-hosts
+ALLOWED_HOSTS = ['http://thepineappleproject.herokuapp.com', 'localhost']

@@ -30,8 +30,11 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="manage.py" />
+    <Compile Include="ThePineappleProject\settings\base.py" />
+    <Compile Include="ThePineappleProject\settings\local.py" />
+    <Compile Include="ThePineappleProject\settings\release.py" />
+    <Compile Include="ThePineappleProject\settings\__init__.py" />
     <Compile Include="ThePineappleProject\__init__.py" />
-    <Compile Include="ThePineappleProject\settings.py" />
     <Compile Include="ThePineappleProject\urls.py" />
     <Compile Include="ThePineappleProject\wsgi.py" />
     <Compile Include="web\admin.py" />
@@ -52,6 +55,7 @@
     <Folder Include="static\" />
     <Folder Include="templates\" />
     <Folder Include="ThePineappleProject\" />
+    <Folder Include="ThePineappleProject\settings\" />
     <Folder Include="web\" />
     <Folder Include="web\static\" />
     <Folder Include="web\static\css\" />
@@ -67,6 +71,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Procfile" />
+    <Content Include="README.md" />
     <Content Include="templates\layout.html" />
     <Content Include="web\static\css\style.css" />
     <Content Include="web\static\img\background.jpg" />
