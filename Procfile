@@ -1,1 +1,1 @@
-web: gunicorn --settings ThePineappleProject.settings.release ThePineappleProject.wsgi 
+web: gunicorn --settings 'ThePineappleProject.settings.local' ThePineappleProject.wsgi
