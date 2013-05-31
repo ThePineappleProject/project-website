@@ -1,5 +1,5 @@
 from django.contrib import admin
-from web.models import Plant, Cultivar
+from crops.models import Plant, Cultivar
 
 class CultivarAdmin(admin.ModelAdmin):
     list_display = ("name", "plant")

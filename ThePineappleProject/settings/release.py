@@ -1,6 +1,6 @@
 from .base import *
 
-DEBUG = True
+DEBUG = False
 
 #use S3 blob storage for static files
 STATICFILES_STORAGE = 'storages.backends.s3boto.S3BotoStorage'

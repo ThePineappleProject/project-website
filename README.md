@@ -18,23 +18,23 @@ Then follow these instructions
 
        virtualenv venv --distrubute   
 1. Activate the virtual environment
-		
-		#bash
-		source venv/bin/activate
-		
-		#powershell
-		. ./venv/Scripts/activate.ps1
+        
+        #bash
+        source venv/bin/activate
+        
+        #powershell
+        . ./venv/Scripts/activate.ps1
 1. Install the requirements
 
-		pip install -r requirements.txt
+        pip install -r requirements.txt
 1. Set environment variables
-		
-		# bash
-		export DJANGO_SECRET_KEY=YourLocalSecretKey
-		
-		# powershell
-		$Env:DJANGO_SECRET_KEY = "YourLocalSecretKey"
+        
+        # bash
+        export DJANGO_SECRET_KEY=YourLocalSecretKey
+        
+        # powershell
+        $Env:DJANGO_SECRET_KEY = "YourLocalSecretKey"
 1. Run the development server
 
-		#bash
-		python manage.py runserver --settings=ThePineappleProject.settings.local
+        #bash
+        python manage.py runserver --settings=ThePineappleProject.settings.local
